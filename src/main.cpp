@@ -80,7 +80,7 @@ int main() {
     DallasTemperature sensor = createTemperatureSensor();
 
     while (true) {
-        static constexpr int MEASURING_TIME = 1000;
+        static constexpr int MEASURING_TIME = 100;
         const unsigned long start = millis();
         float averageTemperature = getTemperature(sensor);
         while (millis() - start < MEASURING_TIME) {
@@ -91,7 +91,7 @@ int main() {
         display.print("Temperature: ");
         display.print(averageTemperature);
         display.print(" " DEGREE_SYMBOL "C");
-        
+        display.display();
     }
     return 0;
 }
